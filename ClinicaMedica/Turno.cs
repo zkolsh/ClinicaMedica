@@ -18,5 +18,18 @@ namespace ClinicaMedica
         public Medico Medico { get; set; }
         public Especialidad Especialidad { get; set; }
         public Estado Estado { get; set; }
+
+        public string MostrarDatos(string prefix = "") {
+        	string especialidad = Especialidad?.Nombre ?? "(none)";
+        	string estado = Estado?.Descripcion ?? "(none)";
+        	string nombreMedico = Medico?.Nombre ?? "<desconocido>";
+        	string apellidoMedico = Medico?.Apellido ?? "<desconocido>";
+        	
+        	return $"{prefix}Turno [{estado}]{Environment.NewLine}"
+        	     + $"{prefix} - Con [{especialidad}] [{nombreMedico} {apellidoMedico}]{Environment.NewLine}"
+        	     + $"{prefix} - Horario {Fecha} {Hora}{Environment.NewLine}"
+        	     + (string.IsNullOrWhiteSpace(Observaciones)
+        	     ? "" : $"{prefix} - Observaciones: {Observaciones}{Environment.NewLine}");
+        }
     }
 }

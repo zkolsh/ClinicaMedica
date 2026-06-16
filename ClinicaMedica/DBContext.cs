@@ -1,8 +1,6 @@
-﻿using ClinicaMedica;
-using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Clinicamedica
+namespace ClinicaMedica
 {
     public class ClinicaContext : DbContext
     {
@@ -15,7 +13,7 @@ namespace Clinicamedica
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlite(@"Data Source=C:\Users\PC\source\repos\Formas\ClinicaMedica\ClinicaMedica\ClinicaMedica.db");
+            options.UseSqlite(@"Data Source=./ClinicaMedica.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -14,5 +14,12 @@ namespace ClinicaMedica
 
         public Medico Medico { get; set; }
         public Especialidad Especialidad { get; set; }
+
+        public string ToReadableString() {
+		// hdps en C# cómo que si no arranca el día en domingo anda mal
+		string[] dias = {"Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"};
+        	string nombreDia = (DiaSemana >= 0 && DiaSemana < 7) ? dias[DiaSemana] : $"Día {DiaSemana}";
+        	return $"{nombreDia} de {HoraInicio} a {HoraFin}";
+        }
     }
 }
